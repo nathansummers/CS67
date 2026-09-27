@@ -1,4 +1,4 @@
-package Assignment4;
+package Assignments.Assignment4;
 
 import java.io.*;
 

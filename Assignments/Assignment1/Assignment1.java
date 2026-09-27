@@ -1,4 +1,4 @@
-package Assignment1;
+package Assignments.Assignment1;
 
 //Resource: w3schools java loop tutorial
 //https://www.w3schools.com/java/java_for_loop.asp

@@ -1,4 +1,4 @@
-package Assignment6;
+package Assignments.Assignment6;
 
 public class Vehicle extends Machine
 {

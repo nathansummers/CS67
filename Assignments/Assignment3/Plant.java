@@ -1,4 +1,4 @@
-package Assignment3;
+package Assignments.Assignment3;
 
 public class Plant 
 {
