@@ -17,6 +17,18 @@ public class Star extends CelestialBody
         setPosition(xPosition, yPosition);
     }
 
+    //default constructor for star, based on the sun's parameters
+    public Star()
+    {
+        super("default");
+
+        this.mass = 1.989 * Math.pow(10, 30);
+
+        this.temperature = 10_000.0;
+
+        setPosition(0.0, 0.0);
+    }
+
     //applies heating to a given planet based on how far away they are
     public void applyHeat(Planet bodyHeating)
     {
@@ -80,5 +92,11 @@ public class Star extends CelestialBody
         distances[2] = euclideanDistance;
 
         return distances;
+    }
+
+    //checks if the mass is suitable to support nearby planets, between roughly 0.1 - 2.0 solar masses
+    public boolean isHabitable()
+    {
+        return  (1.989 * Math.pow(10, 30)) * 0.1 > mass && mass > (1.989 * Math.pow(10, 30)) * 2.0; 
     }
 }

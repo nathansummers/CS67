@@ -13,9 +13,11 @@ public class Planet extends CelestialBody
 
     double coolingRate;
 
+    boolean atmosphere;
+
     // This is a planet class. It is intended to orbit a star at the given orbiting distance and velocity.
     // It's position is originated at the equivalent to (1, 0) on the unit circle where (0, 0) is the Star it orbits and the radius is the orbiting distance.
-    public Planet(String name, Star sun, double orbitingDistance, double orbitingVelocity, double cooling)
+    public Planet(String name, Star sun, double orbitingDistance, double orbitingVelocity, double cooling, boolean atmosphere)
     {
         super(name);
 
@@ -29,8 +31,29 @@ public class Planet extends CelestialBody
         this.orbitsCompleted = 0;
 
         this.coolingRate = cooling;
+        this.atmosphere = atmosphere;
 
         setPosition(sun.xPosition + orbitingDistance, sun.yPosition); // Setting the position as outlined in the comment above
+    }
+
+    //default constructor for planet, based on earth's parameters
+    public Planet()
+    {
+        super("default");
+
+        this.parentBody = new Star();
+
+        this.orbitingDistance = 149_597_870_700.0;
+
+        this.xVelocity = 0;
+        this.yVelocity = 2_572_992_000.0;
+
+        this.orbitsCompleted = 0;
+
+        this.coolingRate = 15.0;
+        this.atmosphere = true;
+
+        setPosition(parentBody.xPosition + orbitingDistance, parentBody.yPosition); // Setting the position as outlined in the comment above
     }
 
     // This function represents one time step passing for this object
@@ -92,8 +115,16 @@ public class Planet extends CelestialBody
                                 "\n     Orbits Completed: " + orbitsCompleted +
                                 "\n     Position: (%,2f, %,2f)" +
                                 "\n     Velocity: (%,2f, %,2f)" + 
-                                "\n     Temperature: " + temperature + " kelvin",
+                                "\n     Temperature: " + temperature + " kelvin" + 
+                                "\n     Hospitable: " + isHabitable(),
                                 xPosition, yPosition,
                                 xVelocity, yVelocity);
     }
+
+    //overriding the default isHabitable, now checks for both temperature and atmosphere
+    public boolean isHabitable()
+    {
+        return 310.0 > temperature && temperature > 240.0 && atmosphere;
+    }
+
 }

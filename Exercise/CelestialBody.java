@@ -42,4 +42,20 @@ public abstract class CelestialBody
     {
         return yPosition;
     }
+
+    public double getTemperature()
+    {
+        return temperature;
+    }
+
+    public void setTemperature(double t)
+    {
+        temperature = t;
+    }
+
+    //checks if the temperature is suitable for life
+    public boolean isHabitable()
+    {
+        return 310.0 > temperature && temperature > 240.0;
+    }
 }

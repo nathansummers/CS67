@@ -30,9 +30,9 @@ public class SolarSystem
         double jupiterVelocity = 1_128_384_000.0;
 
         Star sun = new Star("Sun", sunMass, 0, 0, 10_000.0);
-        Planet earth = new Planet("Earth", sun, earthOrbitingDistance, earthVelocity, 15.0);
-        Planet mars = new Planet("Mars", sun, marsObitingDistance, marsVelocity, 12.0);
-        Planet jupiter = new Planet("Jupiter", sun, jupiterOrbitingDistance, jupiterVelocity, 0.8);
+        Planet earth = new Planet("Earth", sun, earthOrbitingDistance, earthVelocity, 15.0, true);
+        Planet mars = new Planet("Mars", sun, marsObitingDistance, marsVelocity, 12.0, false);
+        Planet jupiter = new Planet("Jupiter", sun, jupiterOrbitingDistance, jupiterVelocity, 0.8, false);
 
         Planet[] planets = new Planet[3];
 
